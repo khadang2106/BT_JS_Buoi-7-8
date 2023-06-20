@@ -1,0 +1,46 @@
+/* GLOBAL */
+body {
+  background: #282828;
+}
+.container {
+  background: white;
+  border-radius: 10px;
+}
+p {
+  margin: 0;
+}
+.d-flex {
+  gap: 10px;
+}
+.btn {
+  border-radius: 20px;
+}
+.card-link {
+  color: black;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+.from1-5:hover {
+  color: #28a745;
+}
+.from6-10:hover {
+  color: #ffc107;
+}
+.result {
+  display: none;
+}
+.badge-success,
+.badge-warning {
+  background-color: black;
+  transition: all 0.4s;
+}
+.badge-warning {
+  color: white;
+}
+.from1-5:hover .badge-success {
+  background-color: #28a745;
+}
+.from6-10:hover .badge-warning {
+  background-color: #ffc107;
+  color: black;
+}
