@@ -33,7 +33,7 @@
           <button class="btn btn-primary" id="btnAddNum">Thêm số</button>
         </div>
         <div class="form-group">
-          <p class="result alert alert-info" id="arrNumber"></p>
+          <p class="result alert alert-info" id="arrNumberResult"></p>
         </div>
       </div>
       <div id="accordion">
@@ -151,11 +151,23 @@
               data-toggle="collapse"
               href="#req6"
             >
-              <span class="badge badge-warning">6</span> Đổi chỗ
+              <span class="badge badge-warning">6</span> Đổi chỗ 2 giá trị
             </a>
           </div>
           <div id="req6" class="collapse" data-parent="#accordion">
             <div class="card-body">
+              <div class="form-group d-flex">
+                <input
+                  class="form-control"
+                  placeholder="Nhập vị trí thứ 1"
+                  id="pos1"
+                />
+                <input
+                  class="form-control"
+                  placeholder="Nhập vị trí thứ 2"
+                  id="pos2"
+                />
+              </div>
               <div class="form-group">
                 <button class="btn btn-warning" id="btnReq6">Đổi chỗ</button>
               </div>
@@ -285,6 +297,8 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- METHOD JS -->
+    <script src="./js/method.js"></script>
     <!-- MAIN JS -->
     <script src="./js/main.js"></script>
   </body>
