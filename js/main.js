@@ -115,8 +115,34 @@ getEle('btnReq4').onclick = function () {
     Tìm số chẵn cuối cùng
 */
 //Khai báo biến chứa số chẵn
-var arrEvenNum = [];
+// var arrEvenNum = [];
 
+// getEle('btnReq5').onclick = function () {
+//   var resultReq5 = '';
+//   if (arrNumber.length === 0) {
+//     printResult(
+//       'lastEven',
+//       'Không có giá trị nào trong mảng',
+//       'Vui lòng thêm số vào mảng!'
+//     );
+//   } else {
+//     for (var i = 0; i < arrNumber.length; i++) {
+//       if (arrNumber[i] % 2 === 0) {
+//         arrEvenNum.push(arrNumber[i]);
+//       }
+//     }
+//     if (arrEvenNum.length === 0) {
+//       resultReq5 = 'Không có số chẵn nào!';
+//       printResult('lastEven', resultReq5);
+//     } else {
+//       var lastEven = arrEvenNum[arrEvenNum.length - 1];
+//       resultReq5 = 'Số chẵn cuối cùng: ' + lastEven;
+//       printResult('lastEven', resultReq5);
+//     }
+//   }
+// };
+
+//Cách khác: Duyệt mảng ngược từ cuối mảng
 getEle('btnReq5').onclick = function () {
   var resultReq5 = '';
   if (arrNumber.length === 0) {
@@ -126,18 +152,16 @@ getEle('btnReq5').onclick = function () {
       'Vui lòng thêm số vào mảng!'
     );
   } else {
-    for (var i = 0; i < arrNumber.length; i++) {
+    for (var i = arrNumber.length - 1; i >= 0; i--) {
       if (arrNumber[i] % 2 === 0) {
-        arrEvenNum.push(arrNumber[i]);
+        var lastEven = arrNumber[i];
+        resultReq5 = 'Số chẵn cuối cùng: ' + lastEven;
+        printResult('lastEven', resultReq5);
+        break;
+      } else {
+        resultReq5 = 'Không có số chẵn nào!';
+        printResult('lastEven', resultReq5);
       }
-    }
-    if (arrEvenNum.length === 0) {
-      resultReq5 = 'Không có số chẵn nào!';
-      printResult('lastEven', resultReq5);
-    } else {
-      var lastEven = arrEvenNum[arrEvenNum.length - 1];
-      resultReq5 = 'Số chẵn cuối cùng: ' + lastEven;
-      printResult('lastEven', resultReq5);
     }
   }
 };
@@ -197,7 +221,7 @@ getEle('btnReq8').onclick = function () {
     );
   } else {
     for (var i = 0; i < arrNumber.length; i++) {
-      var checkInt = checkInteger(arrNumber[i]);
+      var checkInt = isPrimeNumber(arrNumber[i]);
       if (checkInt) {
         resultReq8 = 'Số nguyên tố đầu tiên: ' + arrNumber[i];
         break;

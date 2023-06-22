@@ -1,8 +1,8 @@
-//hàm DOM tới id
+//Hàm DOM tới id
 function getEle(id) {
   return document.getElementById(id);
 }
-//hàm in kết quả ra giao diện
+//Hàm in kết quả ra giao diện
 function printResult(id, sentence, messAlert = null) {
   if (messAlert) alert(messAlert);
   getEle(id).innerHTML = sentence;
@@ -17,7 +17,7 @@ function permutation(arr, pos1, pos2) {
 }
 
 //Hàm kiểm tra số nguyên tố
-function checkInteger(number) {
+function isPrimeNumber(number) {
   var checkInt = true;
   if (number <= 1) {
     checkInt = false;
