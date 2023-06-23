@@ -12,18 +12,9 @@ getEle('btnAddNum').onclick = function () {
 */
 getEle('btnReq1').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'positiveTotal',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('positiveTotal');
   } else {
-    var total = 0;
-    for (var i = 0; i < arrNumber.length; i++) {
-      if (arrNumber[i] > 0) {
-        total += arrNumber[i];
-      }
-    }
+    var total = sumPositiveNum(arrNumber);
     var resultReq1 = 'Tổng các số dương: ' + total;
     printResult('positiveTotal', resultReq1);
   }
@@ -34,18 +25,9 @@ getEle('btnReq1').onclick = function () {
 */
 getEle('btnReq2').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'positiveCount',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('positiveCount');
   } else {
-    var posCount = 0;
-    for (var i = 0; i < arrNumber.length; i++) {
-      if (arrNumber[i] > 0) {
-        posCount++;
-      }
-    }
+    var posCount = countPositiveNum(arrNumber);
     var resultReq2 = 'Có ' + posCount + ' số dương';
     printResult('positiveCount', resultReq2);
   }
@@ -56,18 +38,9 @@ getEle('btnReq2').onclick = function () {
 */
 getEle('btnReq3').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'minNumber',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('minNumber');
   } else {
-    var minNumber = arrNumber[0];
-    for (var i = 1; i < arrNumber.length; i++) {
-      if (minNumber > arrNumber[i]) {
-        minNumber = arrNumber[i];
-      }
-    }
+    var minNumber = findMin(arrNumber);
     var resultReq3 = 'Số nhỏ nhất: ' + minNumber;
     printResult('minNumber', resultReq3);
   }
@@ -82,11 +55,7 @@ var positiveNum = [];
 getEle('btnReq4').onclick = function () {
   var resultReq4 = '';
   if (arrNumber.length === 0) {
-    printResult(
-      'minPositiveNum',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('minPositiveNum');
   } else {
     //Thêm các số dương từ mảng arrNumber vào mảng positiveNum
     for (var i = 0; i < arrNumber.length; i++) {
@@ -98,13 +67,7 @@ getEle('btnReq4').onclick = function () {
       resultReq4 = 'Không có số dương trong mảng';
       printResult('minPositiveNum', resultReq4);
     } else {
-      var minPositiveNum = positiveNum[0];
-      var resultReq4 = '';
-      for (var j = 1; j < positiveNum.length; j++) {
-        if (minPositiveNum > positiveNum[j] && positiveNum[j] > 0) {
-          minPositiveNum = positiveNum[j];
-        }
-      }
+      var minPositiveNum = findMin(positiveNum);
       resultReq4 = 'Số dương nhỏ nhất: ' + minPositiveNum;
       printResult('minPositiveNum', resultReq4);
     }
@@ -120,11 +83,7 @@ getEle('btnReq4').onclick = function () {
 // getEle('btnReq5').onclick = function () {
 //   var resultReq5 = '';
 //   if (arrNumber.length === 0) {
-//     printResult(
-//       'lastEven',
-//       'Không có giá trị nào trong mảng',
-//       'Vui lòng thêm số vào mảng!'
-//     );
+//     printResultIfEmpty('lastEven');
 //   } else {
 //     for (var i = 0; i < arrNumber.length; i++) {
 //       if (arrNumber[i] % 2 === 0) {
@@ -146,22 +105,15 @@ getEle('btnReq4').onclick = function () {
 getEle('btnReq5').onclick = function () {
   var resultReq5 = '';
   if (arrNumber.length === 0) {
-    printResult(
-      'lastEven',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('lastEven');
   } else {
-    for (var i = arrNumber.length - 1; i >= 0; i--) {
-      if (arrNumber[i] % 2 === 0) {
-        var lastEven = arrNumber[i];
-        resultReq5 = 'Số chẵn cuối cùng: ' + lastEven;
-        printResult('lastEven', resultReq5);
-        break;
-      } else {
-        resultReq5 = 'Không có số chẵn nào!';
-        printResult('lastEven', resultReq5);
-      }
+    if (findLastEvenNum(arrNumber) === -1) {
+      resultReq5 = 'Không có số chẵn nào!';
+      printResult('lastEven', resultReq5);
+    } else {
+      var lastEven = findLastEvenNum(arrNumber);
+      resultReq5 = 'Số chẵn cuối cùng: ' + lastEven;
+      printResult('lastEven', resultReq5);
     }
   }
 };
@@ -171,11 +123,7 @@ getEle('btnReq5').onclick = function () {
 */
 getEle('btnReq6').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'swapPosition',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('swapPosition');
   } else {
     var pos1 = getEle('pos1').value * 1;
     var pos2 = getEle('pos2').value * 1;
@@ -190,19 +138,9 @@ getEle('btnReq6').onclick = function () {
 */
 getEle('btnReq7').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'arrange',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('arrange');
   } else {
-    for (var i = 0; i < arrNumber.length - 1; i++) {
-      for (var j = i + 1; j < arrNumber.length; j++) {
-        if (arrNumber[i] > arrNumber[j]) {
-          permutation(arrNumber, i, j);
-        }
-      }
-    }
+    bubbleSort(arrNumber);
     var resultReq7 = 'Mảng sau khi sắp xếp tăng dần: ' + arrNumber;
     printResult('arrange', resultReq7);
   }
@@ -214,11 +152,7 @@ getEle('btnReq7').onclick = function () {
 getEle('btnReq8').onclick = function () {
   var resultReq8 = '';
   if (arrNumber.length === 0) {
-    printResult(
-      'firstInteger',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('firstInteger');
   } else {
     for (var i = 0; i < arrNumber.length; i++) {
       var checkInt = isPrimeNumber(arrNumber[i]);
@@ -249,22 +183,10 @@ getEle('btnReq9').onclick = function () {
   var totalArr = arrNumber.concat(newArrNum);
 
   if (totalArr.length === 0) {
-    printResult(
-      'integerCount',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('integerCount');
   } else {
-    var integerCount = 0;
     var resultReq9 = '';
-    for (var i = 0; i < totalArr.length; i++) {
-      // if (totalArr[i] % 1 === 0) {
-      //   integerCount++;
-      // }
-      if (Number.isInteger(totalArr[i])) {
-        integerCount++;
-      }
-    }
+    var integerCount = countInteger(totalArr);
     if (integerCount === 0) {
       resultReq9 = 'Không có số nguyên nào trong mảng!';
     } else {
@@ -279,22 +201,11 @@ getEle('btnReq9').onclick = function () {
 */
 getEle('btnReq10').onclick = function () {
   if (arrNumber.length === 0) {
-    printResult(
-      'compare',
-      'Không có giá trị nào trong mảng',
-      'Vui lòng thêm số vào mảng!'
-    );
+    printResultIfEmpty('compare');
   } else {
-    var positiveCount = 0;
-    var negativeCount = 0;
     var resultReq10 = '';
-    for (var i = 0; i < arrNumber.length; i++) {
-      if (arrNumber[i] > 0) {
-        positiveCount++;
-      } else if (arrNumber[i] < 0) {
-        negativeCount++;
-      }
-    }
+    var positiveCount = countPositiveNum(arrNumber);
+    var negativeCount = countNegativeNum(arrNumber);
     if (positiveCount === negativeCount) {
       resultReq10 = 'Số dương = Số âm';
     } else if (positiveCount > negativeCount) {
